@@ -27,11 +27,25 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "graphp/algorithms": "^0.8.1"
+        "graphp/algorithms": "^0.8.1",
+        "jms/serializer-bundle": "^1.1",
+        "doctrine/migrations": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^2.7"
+        "symfony/phpunit-bridge": "^2.7",
+        "liip/functional-test-bundle": "~1.4",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "phpunit/phpunit": "~4.0",
+        "behat/behat": "@dev",
+        "behat/symfony2-extension": "@dev",
+        "behat/mink": "@dev",
+        "behat/mink-extension": "@dev",
+        "behatch/contexts": "@dev",
+        "psy/psysh": "~0.3",
+        "zorbus/behat-contexts": "0.2.*",
+        "fabpot/php-cs-fixer": "@dev"
     },
     "scripts": {
         "post-install-cmd": [

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1>Populate database</h1>
+        <form action="{{ path('populate') }}" method="post" class="form-horizontal">
+            <div class="form-group">
+                <textarea name="xml" placeholder="Paste the xml of the graph"></textarea>
+            </div>
+            <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+    </div>
+{% endblock %}

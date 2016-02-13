@@ -1,0 +1,26 @@
+AppBundle\Entity\Graph:
+  type: entity
+  table: graph
+  id:
+    id:
+      type: string
+      length: ~
+      unique: true
+      generator: { strategy: NONE }
+  fields:
+    name:
+      type: string
+      length: 255
+  oneToMany:
+    edges:
+      targetEntity: Edge
+      mappedBy: graph
+      cascade:
+        - persist
+        - remove
+    nodes:
+      targetEntity: Node
+      mappedBy: graph
+      cascade:
+        - persist
+        - remove

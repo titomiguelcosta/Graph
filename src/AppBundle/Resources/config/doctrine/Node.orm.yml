@@ -1,0 +1,34 @@
+AppBundle\Entity\Node:
+  type: entity
+  table: node
+  id:
+    id:
+      type: string
+      length: ~
+      unique: true
+      generator: { strategy: NONE }
+  fields:
+    name:
+      type: string
+      length: 255
+  manyToOne:
+    graph:
+      targetEntity: Graph
+      inversedBy: nodes
+      joinColumn:
+        name: graph_id
+        referencedColumnName: id
+        nullable: false
+  oneToMany:
+    fromEdges:
+      targetEntity: Edge
+      mappedBy: from
+      cascade:
+        - persist
+        - remove
+    toEdges:
+      targetEntity: Edge
+      mappedBy: to
+      cascade:
+        - persist
+        - remove

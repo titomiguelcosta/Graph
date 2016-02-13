@@ -1,0 +1,13 @@
+services:
+    uniregistry.adapter.entity:
+        class: AppBundle\Adapter\EntityAdapter
+
+    uniregistry.parser.xml:
+        class: Uniregistry\Parser\XmlParser
+        arguments:
+          - "@jms_serializer"
+
+    jms.serializer.post_deserialize_subscriber:
+        class: Uniregistry\Listener\Serializer\PostDeserializeSubscribe
+        tags:
+            - { name: jms_serializer.event_subscriber }

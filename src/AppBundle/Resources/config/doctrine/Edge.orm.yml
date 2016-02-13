@@ -1,0 +1,34 @@
+AppBundle\Entity\Edge:
+  type: entity
+  table: edge
+  id:
+    id:
+      type: string
+      length: ~
+      unique: true
+      generator: { strategy: NONE }
+  fields:
+    cost:
+      type: float
+  manyToOne:
+    from:
+      targetEntity: Node
+      inversedBy: fromEdges
+      joinColumn:
+        name: from_id
+        referencedColumnName: id
+        nullable: false
+    to:
+      targetEntity: Node
+      inversedBy: toEdges
+      joinColumn:
+        name: to_id
+        referencedColumnName: id
+        nullable: false
+    graph:
+      targetEntity: Graph
+      inversedBy: edges
+      joinColumn:
+        name: graph_id
+        referencedColumnName: id
+        nullable: false

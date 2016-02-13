@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<graph>
+    <id>g1</id>
+    <name>Graph with cycles</name>
+    <nodes>
+        <node>
+            <id>a</id>
+            <name>A name</name>
+        </node>
+        <node>
+            <id>b</id>
+            <name>B name</name>
+        </node>
+        <node>
+            <id>c</id>
+            <name>C name</name>
+        </node>
+        <node>
+            <id>d</id>
+            <name>D name</name>
+        </node>
+    </nodes>
+    <edges>
+        <node>
+            <id>e1</id>
+            <from>a</from>
+            <to>b</to>
+            <cost>42</cost>
+        </node>
+        <node>
+            <id>e2</id>
+            <from>b</from>
+            <to>c</to>
+            <cost>4</cost>
+        </node>
+        <node>
+            <id>e3</id>
+            <from>c</from>
+            <to>a</to>
+            <cost>4</cost>
+        </node>
+        <node>
+            <id>e4</id>
+            <from>a</from>
+            <to>d</to>
+            <cost>4</cost>
+        </node>
+        <node>
+            <id>e5</id>
+            <from>d</from>
+            <to>a</to>
+            <cost>4</cost>
+        </node>
+    </edges>
+</graph>
