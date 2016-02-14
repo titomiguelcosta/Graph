@@ -24,6 +24,11 @@ services:
             - "@uniregistry.repository.edge"
             - "@twig.loader.string"
 
+    uniregistry.query.render.json:
+        class: Uniregistry\Query\Render\JsonQueryRender
+        arguments:
+            - "@uniregistry.repository.edge"
+
     jms.serializer.post_deserialize_subscriber:
         class: Uniregistry\Listener\Serializer\PostDeserializeSubscribe
         tags:

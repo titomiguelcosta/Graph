@@ -117,12 +117,17 @@ class DefaultController extends Controller
         if ($form->isSubmitted()) {
             $graph = $this->getDoctrine()->getRepository('AppBundle:Graph')->find($form->get('graph')->getData());
             $json = $form->get('json')->getData();
+            $format = $form->get('format')->getData();
 
             try {
                 $query = $this->get('uniregistry.parser.query.json')->setJson($json)->getQuery();
                 $errors = $this->get('validator')->validate($query);
                 if (0 === count($errors)) {
-                    $answers = $this->get('uniregistry.query.render.html')->render($graph, $query);
+                    $answers = $this->get('uniregistry.query.render.'.$format)->render($graph, $query);
+
+                    if ('json' === $format) {
+                        return new Response($answers, 200, ['content-type' => 'application/json']);
+                    }
                 } else {
                     $form->addError(new FormError($errors));
                     $this->addFlash('error', 'Invalid json document.');

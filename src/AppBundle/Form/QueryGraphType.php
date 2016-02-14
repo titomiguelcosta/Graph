@@ -22,6 +22,12 @@ class QueryGraphType extends AbstractType
             ->add('graph', ChoiceType::class, [
                 'choices' => $this->flattenChoices($options['graphs'])
             ])
+            ->add('format', ChoiceType::class, [
+                'choices' => [
+                    'Html' => 'html',
+                    'Json' => 'json'
+                ]
+            ])
             ->add('json', TextareaType::class, [
                 'required' => true,
                 'attr' => ['rows' => '8']
