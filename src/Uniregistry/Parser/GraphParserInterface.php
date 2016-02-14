@@ -4,7 +4,7 @@ namespace Uniregistry\Parser;
 
 use Uniregistry\Model\Graph;
 
-interface ParserInterface
+interface GraphParserInterface
 {
     /** @return Graph */
     public function getGraph();

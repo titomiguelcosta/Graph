@@ -1,6 +1,7 @@
 AppBundle\Entity\Edge:
   type: entity
   table: edge
+  repositoryClass: AppBundle\Repository\EdgeRepository
   id:
     id:
       type: string

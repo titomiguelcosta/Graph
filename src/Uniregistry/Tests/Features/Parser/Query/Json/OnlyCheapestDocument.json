@@ -1,0 +1,10 @@
+{
+  "queries": {
+    "cheapest": [
+      {
+        "start": "b",
+        "end": "d"
+      }
+    ]
+  }
+}

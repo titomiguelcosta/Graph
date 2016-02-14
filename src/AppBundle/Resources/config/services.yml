@@ -2,12 +2,22 @@ services:
     uniregistry.adapter.entity:
         class: AppBundle\Adapter\EntityAdapter
 
-    uniregistry.parser.xml:
-        class: Uniregistry\Parser\XmlParser
+    uniregistry.parser.graph.xml:
+        class: Uniregistry\Parser\XmlGraphParser
+        arguments:
+          - "@jms_serializer"
+
+    uniregistry.parser.query.json:
+        class: Uniregistry\Parser\JsonQueryParser
         arguments:
           - "@jms_serializer"
 
     jms.serializer.post_deserialize_subscriber:
         class: Uniregistry\Listener\Serializer\PostDeserializeSubscribe
+        tags:
+            - { name: jms_serializer.event_subscriber }
+
+    jms.serializer.pre_deserialize_subscriber:
+        class: Uniregistry\Listener\Serializer\PreDeserializeSubscribe
         tags:
             - { name: jms_serializer.event_subscriber }

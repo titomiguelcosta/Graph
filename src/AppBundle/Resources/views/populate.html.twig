@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Populate</h2>
+                <p>Create a new graph by submitting a valid xml document.</p>
+                <p class="alert alert-warning">Make sure all ids are unique.</p>
+
+                {{ form(form) }}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <caption>Existing graphs</caption>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for graph in graphs %}
+                            <tr>
+                                <td>{{ graph.id }}</td>
+                                <td>{{ graph.name }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="2">No graphs.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

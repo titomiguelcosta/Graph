@@ -8,9 +8,9 @@ use Symfony\Component\Validator\Validation;
 use Uniregistry\Listener\Serializer\PostDeserializeSubscribe;
 use Uniregistry\Model\Edge;
 use Uniregistry\Model\Node;
-use Uniregistry\Parser\XmlParser;
+use Uniregistry\Parser\XmlGraphParser;
 
-class XmlParserTest extends \PHPUnit_Framework_TestCase
+class XmlGraphParserTest extends \PHPUnit_Framework_TestCase
 {
     private $serializer;
     private $validator;
@@ -31,8 +31,8 @@ class XmlParserTest extends \PHPUnit_Framework_TestCase
      */
     public function validDocument()
     {
-        $parser = new XmlParser($this->serializer);
-        $xml = file_get_contents(__DIR__.'/../Features/Parser/ValidDocument.xml');
+        $parser = new XmlGraphParser($this->serializer);
+        $xml = file_get_contents(__DIR__.'/../Features/Parser/Graph/Xml/ValidDocument.xml');
 
         $graph = $parser->setXml($xml)->getGraph();
 
@@ -76,6 +76,5 @@ class XmlParserTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('a', $lastEdge->getFrom()->getId());
         $this->assertInstanceOf('Uniregistry\Model\Node', $lastEdge->getTo());
         $this->assertSame('a', $lastEdge->getTo()->getId());
-
     }
 }

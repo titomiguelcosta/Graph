@@ -2,12 +2,31 @@
 
 {% block body %}
     <div class="jumbotron">
-        <h1>Populate database</h1>
-        <form action="{{ path('populate') }}" method="post" class="form-horizontal">
-            <div class="form-group">
-                <textarea name="xml" placeholder="Paste the xml of the graph"></textarea>
-            </div>
-            <button type="submit" class="btn btn-info">Submit</button>
-        </form>
+        <div class="container">
+            <h1>Graphistry</h1>
+            <p>A technical test by <a href="http://uniregistry.link/" target="_blank">Uniregistry</a> for backend developers.</p>
+            <p>
+                <a class="btn btn-info btn-lg" href="https://github.com/titomiguelcosta/Graph" target="_blank" role="button">Source code &raquo;</a>
+            </p>
+        </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Validate</h2>
+                <p>Validate the structure and syntax of an xml document describing a graph.</p>
+                <p><a class="btn btn-default" href="#" role="button">Validate &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Populate</h2>
+                <p>Create a new graph by submitting a valid xml document.</p>
+                <p><a class="btn btn-default" href="{{ path('populate') }}" role="button">Populate &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Query</h2>
+                <p>Query an existing graph for shortest path and overall paths connecting two nodes.</p>
+                <p><a class="btn btn-default" href="#" role="button">Query &raquo;</a></p>
+            </div>
+        </div>
 {% endblock %}

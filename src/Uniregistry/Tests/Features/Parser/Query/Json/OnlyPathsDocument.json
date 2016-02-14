@@ -1,0 +1,14 @@
+{
+  "queries": {
+    "paths": [
+      {
+        "start": "a",
+        "end": "c"
+      },
+      {
+        "start": "a",
+        "end": "e"
+      }
+    ]
+  }
+}

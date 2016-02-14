@@ -5,7 +5,7 @@ namespace Uniregistry\Parser;
 use JMS\Serializer\Serializer;
 use Uniregistry\Model\Graph;
 
-class XmlParser implements ParserInterface
+class XmlGraphParser implements GraphParserInterface
 {
     /** @var string */
     private $xml;
@@ -32,7 +32,7 @@ class XmlParser implements ParserInterface
 
     /**
      * @param string $xml
-     * @return XmlParser
+     * @return XmlGraphParser
      */
     public function setXml($xml)
     {

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Query</h2>
+                <p>Against an existing graph, determine certain paths.</p>
+
+                {% if graphs | length > 0 %}
+                    {{ form(form) }}
+                {% else %}
+                    <div class="alert alert-warning">No graphs. <a href="{{ path('populate') }}">Add a graph</a> first.</div>
+                {% endif %}
+            </div>
+            {% if answers | length > 0 %}
+            <div class="col-md-12">
+                <h2>Answers</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>Length</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% if answers.answers.paths is defined %}
+                            <tr>
+                                <td colspan="2"><strong>Paths</strong></td>
+                            </tr>
+                            {% for paths in answers.answers.paths %}
+                                {% for path in paths %}
+                                    <tr>
+                                        <td>{{ path.path_ids }}</td>
+                                        <td>{{ path.length }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="2">No answers.</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                        {% if answers.answers.cheapest is defined %}
+                            <tr>
+                                <td colspan="2"><strong>Cheapest</strong></td>
+                            </tr>
+                            {% for path in answers.answers.cheapest %}
+                                <tr>
+                                    <td>{{ path.path_ids }}</td>
+                                    <td>{{ path.length }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="2">No answers.</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
