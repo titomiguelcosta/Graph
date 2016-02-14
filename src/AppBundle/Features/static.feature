@@ -35,4 +35,4 @@ Feature:
     And the JSON node "queries.paths" should have 2 elements
     And the JSON node "queries.paths[0].start" should be equal to "a"
     And the JSON node "queries.cheapest" should exist
-    And the JSON node "queries.cheapest" should have 2 elements
+    And the JSON node "queries.cheapest" should have 1 element

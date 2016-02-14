@@ -48,7 +48,8 @@ class TwigLoaderString implements \Twig_LoaderInterface, EngineInterface
      * @param string|TemplateReferenceInterface $name
      * @return bool
      */
-    public function supports($name) {
+    public function supports($name)
+    {
         return is_string($name);
     }
 

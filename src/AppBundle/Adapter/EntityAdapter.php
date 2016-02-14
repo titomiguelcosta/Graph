@@ -28,7 +28,7 @@ class EntityAdapter implements GraphAdapterInterface
         }
 
         /** @var Edge $e */
-        foreach($g->getEdges() as $e) {
+        foreach ($g->getEdges() as $e) {
             $edge = $this->castEdge($e, $graph);
             $graph->addEdge($edge);
         }

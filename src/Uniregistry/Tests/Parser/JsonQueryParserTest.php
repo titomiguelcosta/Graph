@@ -18,7 +18,7 @@ class JsonQueryParserTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $builder = SerializerBuilder::create();
-        $builder->configureListeners(function(EventDispatcher $dispatcher) {
+        $builder->configureListeners(function (EventDispatcher $dispatcher) {
             $dispatcher->addSubscriber(new PreDeserializeSubscribe());
         });
         $this->serializer = $builder->build();

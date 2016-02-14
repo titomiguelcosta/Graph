@@ -3,7 +3,6 @@
 namespace Uniregistry\Query\Render;
 
 use AppBundle\Repository\EdgeRepository;
-
 use Symfony\Component\Templating\EngineInterface;
 use Uniregistry\Model\Graph;
 use Uniregistry\Model\Path;
@@ -30,7 +29,7 @@ class HtmlQueryRender implements QueryRenderInterface
     {
         $paths = [];
         /** @var Path $path */
-        foreach($query->getPaths() as $path) {
+        foreach ($query->getPaths() as $path) {
             $results = $this
                 ->edgeRepository
                 ->getPaths($graph->getId(), $path->getStart(), $path->getEnd());
@@ -39,7 +38,7 @@ class HtmlQueryRender implements QueryRenderInterface
 
         $cheapest = [];
         /** @var Path $path */
-        foreach($query->getCheapest() as $path) {
+        foreach ($query->getCheapest() as $path) {
             $results = $this
                 ->edgeRepository
                 ->getPaths($graph->getId(), $path->getStart(), $path->getEnd());
