@@ -3,10 +3,24 @@ XML GRAPH
 
 A Symfony3 project that parses, validates and transverses a graph data structure.
 
+Dependencies
+------------
+
+* Git
+* Composer
+* PostgreSQL
+* PHP 5.5
+
 Deploy
 ------
 
-$ composer create-project https://github.com/titomiguelcosta/Graph Graphistry
+$ git clone https://github.com/titomiguelcosta/Graph graphistry
+
+Change to project directory:
+$ mv graphistry
+
+Install dependencies:
+$ composer install
 
 Edit the PostgreSQL database parameters on app/config/parameters.yml
 
