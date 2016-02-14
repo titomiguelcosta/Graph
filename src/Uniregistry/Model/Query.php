@@ -9,7 +9,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @package Uniregistry\Model
  * @JMS\ExclusionPolicy("all")
- * @JMS\XmlRoot("queries")
  */
 class Query
 {
@@ -17,6 +16,7 @@ class Query
      * @var ArrayCollection
      * @JMS\Expose()
      * @JMS\Type("ArrayCollection<Uniregistry\Model\Path>")
+     * @Assert\Valid
      */
     protected $paths;
 
@@ -24,6 +24,7 @@ class Query
      * @var ArrayCollection
      * @JMS\Expose()
      * @JMS\Type("ArrayCollection<Uniregistry\Model\Path>")
+     * @Assert\Valid
      */
     protected $cheapest;
 

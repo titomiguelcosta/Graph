@@ -51,5 +51,17 @@
             <to>a</to>
             <cost>4</cost>
         </node>
+        <node>
+            <id>e6</id>
+            <from>b</from>
+            <to>d</to>
+            <cost>5</cost>
+        </node>
+        <node>
+            <id>e7</id>
+            <from>d</from>
+            <to>a</to>
+            <cost>1</cost>
+        </node>
     </edges>
 </graph>

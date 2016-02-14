@@ -1,16 +1,28 @@
 services:
+    uniregistry.repository.edge:
+        class: AppBundle\Repository\EdgeRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - AppBundle:Edge
+
     uniregistry.adapter.entity:
         class: AppBundle\Adapter\EntityAdapter
 
     uniregistry.parser.graph.xml:
         class: Uniregistry\Parser\XmlGraphParser
         arguments:
-          - "@jms_serializer"
+            - "@jms_serializer"
 
     uniregistry.parser.query.json:
         class: Uniregistry\Parser\JsonQueryParser
         arguments:
-          - "@jms_serializer"
+            - "@jms_serializer"
+
+    uniregistry.query.render.html:
+        class: Uniregistry\Query\Render\HtmlQueryRender
+        arguments:
+            - "@uniregistry.repository.edge"
+            - "@twig.loader.string"
 
     jms.serializer.post_deserialize_subscriber:
         class: Uniregistry\Listener\Serializer\PostDeserializeSubscribe
@@ -21,3 +33,6 @@ services:
         class: Uniregistry\Listener\Serializer\PreDeserializeSubscribe
         tags:
             - { name: jms_serializer.event_subscriber }
+
+    twig.loader.string:
+        class: AppBundle\Twig\TwigLoaderString

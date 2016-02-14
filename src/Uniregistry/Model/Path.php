@@ -24,6 +24,7 @@ class Path
      * @var string
      * @JMS\Expose()
      * @JMS\Type("string")
+     * @Assert\NotBlank()
      * @Assert\Type(type="string")
      */
     protected $end;

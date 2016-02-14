@@ -43,12 +43,13 @@ class DefaultController extends Controller
                 $graph = $this->get('uniregistry.parser.graph.xml')->setXml($xml)->getGraph();
                 $errors = $this->get('validator')->validate($graph);
                 if (0 === count($errors)) {
-                    $this->addFlash('success', 'It is a valid document.');
+                    $this->addFlash('success', 'It is a xml valid document representing a graph.');
+                    $this->addFlash('document', $xml);
 
-                    return $this->redirectToRoute('populate');
+                    return $this->redirectToRoute('validate');
                 } else {
                     $form->addError(new FormError($errors));
-                    $this->addFlash('error', 'Invalid document.');
+                    $this->addFlash('error', 'Invalid xml document.');
                 }
             } catch (XmlErrorException $e) {
                 $form->addError(new FormError($e->getMessage()));
@@ -108,7 +109,7 @@ class DefaultController extends Controller
     public function queryAction(Request $request)
     {
         $graphs = $this->getDoctrine()->getRepository('AppBundle:Graph')->findAll();
-        $answers = [];
+        $answers = '';
 
         $form = $this->createForm(QueryGraphType::class, null, ['graphs' => $graphs]);
         $form->handleRequest($request);
@@ -121,27 +122,14 @@ class DefaultController extends Controller
                 $query = $this->get('uniregistry.parser.query.json')->setJson($json)->getQuery();
                 $errors = $this->get('validator')->validate($query);
                 if (0 === count($errors)) {
-                    /** @var Path $path */
-                    foreach($query->getPaths() as $path) {
-                        $results = $this
-                            ->getDoctrine()
-                            ->getRepository('AppBundle:Edge')
-                            ->getPaths($graph->getId(), $path->getStart(), $path->getEnd());
-                        $answers['answers']['paths'][] = $results;
-                    }
-                    /** @var Path $path */
-                    foreach($query->getCheapest() as $path) {
-                        $results = $this
-                            ->getDoctrine()
-                            ->getRepository('AppBundle:Edge')
-                            ->getPaths($graph->getId(), $path->getStart(), $path->getEnd());
-                        $answers['answers']['cheapest'][] = array_shift($results);
-                    }
+                    $answers = $this->get('uniregistry.query.render.html')->render($graph, $query);
                 } else {
                     $form->addError(new FormError($errors));
-                    $this->addFlash('error', 'Invalid document.');
+                    $this->addFlash('error', 'Invalid json document.');
                 }
             } catch (JsonDecodingException $e) {
+                $form->addError(new FormError($e->getMessage()));
+            } catch (\RuntimeException $e) {
                 $form->addError(new FormError($e->getMessage()));
             }
         }

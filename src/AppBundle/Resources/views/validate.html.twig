@@ -1,14 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Validate</h2>
-                <p>Validates the syntax and the semantic of an xml document that describes a graph.</p>
+    {% for flash_message in app.session.flashbag.get('document') %}
+        <pre><code>{{ flash_message }}</code></pre>
+    {% endfor %}
 
-                {{ form(form) }}
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Validate</h2>
+
+            <p>Validates the syntax and the semantic of an xml document that describes a graph.</p>
+
+            {{ form(form) }}
         </div>
     </div>
 {% endblock %}
