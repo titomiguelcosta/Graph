@@ -9,7 +9,7 @@ Dependencies
 * Git
 * Composer
 * PostgreSQL
-* PHP 5.5
+* PHP 5.5+
 
 Deploy
 ------
@@ -41,21 +41,21 @@ $ php vendor/bin/behat
 Libraries
 ---------
 
-* JMSSerializer - to deserialize objects to xml/json
-* Validator - to validate objects
-* Doctrine - ORM/DBAL to interact with PostgreSQL
+* [JMSSerializer](http://jmsyst.com/libs/serializer) - to deserialize objects to xml/json
+* [Validator](http://symfony.com/doc/current/book/validation.html) - to validate objects
+* [Doctrine](http://www.doctrine-project.org/) - ORM/DBAL to interact with PostgreSQL
 
 References
 ----------
 
 Some interesting articles that helped me out to implement this project
 
-* SQL recursive queries: http://www.vertabelo.com/blog/technical-articles/sql-recursive-queries
-* A PHP Graph library: https://github.com/clue/graph
-* Symfony: http://symfony.com/doc/current/index.html
+* [SQL recursive queries](http://www.vertabelo.com/blog/technical-articles/sql-recursive-queries)
+* [A PHP Graph library](https://github.com/clue/graph)
+* [Symfony](http://symfony.com/doc/current/index.html)
 
 Links
 -----
 
-* Homepage: http://graphistry.titomiguelcosta.com
-* Source code: https://github.com/titomiguelcosta/Graph
+* [Homepage](http://graphistry.titomiguelcosta.com)
+* [Source code](https://github.com/titomiguelcosta/Graph)
