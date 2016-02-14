@@ -26,7 +26,8 @@ class QueryGraphType extends AbstractType
                 'choices' => [
                     'Html' => 'html',
                     'Json' => 'json'
-                ]
+                ],
+                'label' => 'Response'
             ])
             ->add('json', TextareaType::class, [
                 'required' => true,
