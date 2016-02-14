@@ -1,5 +1,5 @@
 parameters:
-    database_path: "%kernel.root_dir%/data/data_test.db3"
+    database_name: uniregistry_test
 
 imports:
     - { resource: config_dev.yml }

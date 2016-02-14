@@ -42,9 +42,9 @@
         "behat/symfony2-extension": "@dev",
         "behat/mink": "@dev",
         "behat/mink-extension": "@dev",
+        "behat/mink-browserkit-driver": "@dev",
         "behatch/contexts": "@dev",
         "psy/psysh": "~0.3",
-        "zorbus/behat-contexts": "0.2.*",
         "fabpot/php-cs-fixer": "@dev"
     },
     "scripts": {

@@ -1,0 +1,28 @@
+default:
+    formatters:
+        progress: true
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                env: test
+                debug: true
+        Behat\MinkExtension:
+            sessions:
+                default:
+                    symfony2: ~
+            base_url: 'http://127.0.0.1/app_test.php'
+            files_path: data
+        Sanpi\Behatch\Extension: ~
+    suites:
+        app_suite:
+            type: symfony_bundle
+            bundle: AppBundle
+            contexts:
+                - AppBundle\Features\Context\FeatureContext
+                - behatch:browser
+                - behatch:debug
+                - behatch:system
+                - behatch:json:
+                    evaluationMode: javascript
+                - behatch:table
+                - behatch:xml
